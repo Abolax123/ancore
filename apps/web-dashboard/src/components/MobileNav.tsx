@@ -10,13 +10,13 @@ interface MobileNavProps {
 
 export const MobileNav: React.FC<MobileNavProps> = ({ links }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const drawerRef = useRef<HTMLDivElement>(null);
-  const buttonRef = useRef<HTMLButtonElement>(null);
+  const drawerRef = useRef<globalThis.HTMLDivElement>(null);
+  const buttonRef = useRef<globalThis.HTMLButtonElement>(null);
 
   const toggle = () => setIsOpen(!isOpen);
 
   useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
+    const handleKeyDown = (e: globalThis.KeyboardEvent) => {
       if (e.key === 'Escape') setIsOpen(false);
     };
     if (isOpen) {
@@ -40,10 +40,10 @@ export const MobileNav: React.FC<MobileNavProps> = ({ links }) => {
     );
     if (!focusableElements || focusableElements.length === 0) return;
 
-    const firstElement = focusableElements[0] as HTMLElement;
-    const lastElement = focusableElements[focusableElements.length - 1] as HTMLElement;
+    const firstElement = focusableElements[0] as globalThis.HTMLElement;
+    const lastElement = focusableElements[focusableElements.length - 1] as globalThis.HTMLElement;
 
-    const handleTab = (e: KeyboardEvent) => {
+    const handleTab = (e: globalThis.KeyboardEvent) => {
       if (e.key !== 'Tab') return;
 
       if (e.shiftKey) {

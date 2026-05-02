@@ -151,7 +151,9 @@ export class ErrorHandler {
       if (normalized.code && normalized.code !== ErrorCategory.UNKNOWN) {
         return normalized.code;
       }
-    } catch {}
+    } catch {
+      return undefined;
+    }
 
     // Fallback to previous heuristics
     if (error instanceof Error) {

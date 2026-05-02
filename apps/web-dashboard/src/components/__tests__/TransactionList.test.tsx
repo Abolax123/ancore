@@ -37,7 +37,7 @@ describe('TransactionList', () => {
     return render(ui, { wrapper: TableDensityProvider, ...options });
   };
 
-  const getTransactionRows = (container: HTMLElement) =>
+  const getTransactionRows = (container: globalThis.HTMLElement) =>
     Array.from(container.querySelectorAll('[class*="border-b"]')).filter(
       (row) => row.querySelector('button') === null
     );

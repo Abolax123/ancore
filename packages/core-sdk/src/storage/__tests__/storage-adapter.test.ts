@@ -138,7 +138,7 @@ describe('BrowserStorageAdapter', () => {
 
 function installMemoryLocalStorage(): void {
   const data = new Map<string, string>();
-  (globalThis as unknown as { localStorage: Storage }).localStorage = {
+  (globalThis as unknown as { localStorage: globalThis.Storage }).localStorage = {
     get length() {
       return data.size;
     },
@@ -157,7 +157,7 @@ function installMemoryLocalStorage(): void {
     setItem(key: string, value: string): void {
       data.set(key, value);
     },
-  } as Storage;
+  } as globalThis.Storage;
 }
 
 // ─── LocalStorageAdapter ──────────────────────────────────────────────────────
